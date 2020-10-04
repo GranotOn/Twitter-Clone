@@ -1,0 +1,69 @@
+.auth {
+    width: 100vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // auth intro forms
+    .intro {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        // auth intro forms item
+        .item {
+            display: flex;
+            padding: 2em;
+            
+            // auth intro forms item i
+            i {
+                margin-right: 2em;
+            }
+        }
+    }
+
+    // auth forms
+    .forms {
+        flex: 1;
+        display: flex;
+
+        // auth forms confiner
+        .forms-confiner {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+
+            // auth forms confiner h2
+            h2 {
+                margin-bottom: 2em;
+            }
+
+            // auth forms confiner h4
+            h4 {
+                margin-bottom: 1em;
+            }
+
+            // auth forms confiner auth-buttons 
+            .auth-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            // auth forms confiner separator
+            .separator {
+                margin-top: 2em;
+                margin-bottom: 2em;
+            }
+
+            // auth forms confiner google-signin
+            .g-signin2 {
+                align-self: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.home {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+
+    .middle {
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        width: 100%;
+        max-width: 600px;
+        padding: 0em 1em;
+
+        .fixed-title {
+            position: fixed;
+            top: 0;
+            height: 3em;
+            width: 568px;
+            border-left: 1px solid var(--hr);
+            border-right: 1px solid var(--hr);
+            text-align: center;
+
+            h3 {
+                padding-top: .5em;
+            }
+        }
+    }
+}

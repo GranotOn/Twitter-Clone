@@ -1,0 +1,28 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    padding: .6em 1em;
+    min-width: 50vw;
+    max-width: 1024px;
+
+    .logo {
+        color: white;
+        align-self: center;
+    }
+
+    .title {
+        margin: 2em 0 .5em 0;
+    }
+
+    .register-form {
+        min-height: 20em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .btn {
+        align-self: center;
+        margin: 2em 0 1em 0;
+    }
+}

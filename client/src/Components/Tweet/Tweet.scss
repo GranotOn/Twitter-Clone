@@ -1,0 +1,69 @@
+.tweet {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding: 2em 2em 0em 2em;
+    border-left: 1px solid var(--hr);
+    border-right: 1px solid var(--hr);
+    border-bottom: 1px solid var(--hr);
+    cursor: pointer;
+    transition: 145ms ease-in all;
+
+    &:hover {
+        background-color: var(--bg-hover);
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .time {
+            font-size: .8em;
+        }
+    }
+
+    .logo {
+        width: 3em;
+        height: 3em;
+        background-color: white;
+        border-radius: 100vw;
+        margin-right: .5em;
+        margin-left: -1em;
+    }
+
+    .logo::before {
+        content: "";
+        width: 3em;
+        height: 3em;
+        background-color: white;
+        border-radius: 100vh;
+        float: left;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        min-height: 5em;
+        width: 100%;
+        height: 100%;
+        
+
+        .body h4 {
+            font-weight: 200;
+            margin: .5em 0;
+        }
+
+        .footer {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            span {
+                color: var(--text);
+                padding: 0em .3em;
+                font-size: .8em;
+            }
+        }
+    }
+}

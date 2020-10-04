@@ -1,0 +1,39 @@
+.alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2em;
+  min-width: 10em;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--alert);
+  z-index: 99;
+  animation: alert 1s forwards;
+}
+
+.alert h1 {
+  padding: 0.4em;
+}
+
+.alert p {
+  padding: 0.4em;
+}
+
+@keyframes alert {
+  0% {
+    position: fixed;
+    top: -10%;
+    left: 0;
+  }
+  65% {
+    position: fixed;
+    top: 4%;
+    left: 2%;
+  }
+  100% {
+    position: fixed;
+    top: 2%;
+    left: 2%;
+  }
+}

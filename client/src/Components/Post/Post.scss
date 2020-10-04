@@ -1,0 +1,47 @@
+.post {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    border: 1px solid var(--hr);
+    border-bottom: none;
+    padding: 1em 2em 1em 2em;
+    margin-top: 3em;
+
+    .logo {
+        width: 3em;
+        height: 3em;
+        background-color: white;
+        border-radius: 100vw;
+        margin-right: .5em;
+        margin-left: -1em;
+    }
+
+    .body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        textarea {
+            resize: none;
+            background-color: var(--bg);
+            border: none;
+            color: var(--header-text);
+            padding: 0 .2em;
+            font-size: 1.2em;
+            font-weight: 200;
+            width: 100%;
+            overflow: hidden;
+
+            &:focus {
+                outline: none;
+                padding-bottom: 1em;
+                border-bottom: 1px solid var(--hr);
+            }
+
+            &::placeholder {
+                font-size: 1em;
+            }
+        }
+    }
+}
