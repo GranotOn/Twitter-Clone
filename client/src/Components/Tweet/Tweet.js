@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Tweet.scss";
 
 import useTime from "../../hooks/time.js";
+import Info from "../Info/Info.js";
 
 export default function Tweet({
   tweet_id,
@@ -16,13 +17,39 @@ export default function Tweet({
   ...props
 }) {
   const time = useTime(create_time);
+  const [nameHover, setNameHover] = useState(false);
+  const [profileHover, setProfileHover] = useState(false);
+
+  const toggleNameHover = () => setNameHover(!nameHover);
+  const toggleProfileHover = () => setProfileHover(!profileHover);
+
   return (
     <>
       <div className="tweet">
-        <img src={owner_profile} alt="user_picture" className="logo" />
+        <div
+          className="logo-container"
+          onMouseEnter={toggleProfileHover}
+          onMouseLeave={toggleProfileHover}
+        >
+          <img src={owner_profile} alt="user_picture" className="logo" />
+          {profileHover && (
+            <Info name={owner} id={owner_id} profile={owner_profile} />
+          )}
+        </div>
+
         <div className="content">
           <div className="header">
-            <h3 className="owner">{owner}</h3>
+            <h3
+              className="owner"
+              onMouseEnter={toggleNameHover}
+              onMouseLeave={toggleNameHover}
+            >
+              {owner}
+
+              {nameHover && (
+                <Info name={owner} id={owner_id} profile={owner_profile} />
+              )}
+            </h3>
             <p className="time">{time}</p>
           </div>
           <div className="body">

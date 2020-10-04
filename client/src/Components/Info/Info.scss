@@ -1,0 +1,72 @@
+.info-container {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 14em;
+    height: auto;
+
+    .user-info {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        padding: .5em .75em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        background-color: var(--bg-dark);
+        box-shadow: 1px 0px 3px 0px rgba(255, 255, 255, 1);
+        border-radius: 1em;
+        opacity: 0;
+        animation: appear 1s forwards;
+        display: flex;
+        flex-direction: column;
+    
+        .header {
+            display: flex;
+            justify-content: space-between;
+    
+            .profile {
+                width: 3em;
+                height: 3em;
+                background-color: white;
+                border-radius: 100vw;
+
+                &:hover {
+                    opacity: .7;
+                    transition: opacity 400ms;
+                }
+            }
+        }
+
+        .body .name {
+            font-weight: 600;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            p {
+                color: var(--header);
+                display: flex;
+                align-items: center;
+                font-size: 1em;
+    
+                span {
+                    font-size: .6em;
+                    padding: .5em;
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
