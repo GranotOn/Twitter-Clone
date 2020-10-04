@@ -1,11 +1,11 @@
-#Twitter Clone
+# Twitter Clone
 
-##Description
+## Description
 
 A Fullstack Twitter clone built with React and Node.
 
 
-##Features (10/04/2020)
+## Features (10/04/2020)
 
 - User registration and authentication (front to back)
 - Feed retreivel system (front to back)
