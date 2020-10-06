@@ -9,6 +9,7 @@ import useProfileInfo from "../../hooks/profileInfo";
 import useFollowers from "../../hooks/followers";
 import useFollowing from "../../hooks/following";
 import useTweets from "../../hooks/tweets";
+import useIsFollowing from "../../hooks/isFollowing";
 
 export default function Profile(props) {
   const name = props.match.params.name;
@@ -17,7 +18,7 @@ export default function Profile(props) {
   const followers = useFollowers(id);
   const following = useFollowing(id);
   const tweets = useTweets(id);
-  console.log(userInfo);
+  const amIFollowingThisUser = useIsFollowing(id);
   const isMyProfile =
     userInfo && parseInt(localStorage.getItem("id")) === userInfo.user_id;
 
@@ -26,9 +27,15 @@ export default function Profile(props) {
       <Nav active={isMyProfile && "profile"} />
       <div className="profile">
         <div className="showcase">
-            <img src={userInfo && userInfo.profile} alt="user_logo" className="logo"/>
-            <h3 className="name">{userInfo && userInfo.username}</h3>
+          <img
+            src={userInfo && userInfo.profile}
+            alt="user_logo"
+            className="logo"
+          />
+          <h3 className="name">{userInfo && userInfo.username}</h3>
+    
         </div>
+        <hr className="hr-big"></hr>
       </div>
     </div>
   );

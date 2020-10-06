@@ -45,6 +45,7 @@ router.get("/feed", (req, res, next) => {
 });
 
 router.get("/getTweetsByUser/:id", (req, res, next) => {
+  console.log("test");
   const id = req.params.id;
   Tweet.getTweetsByUser(id)
     .then((response) => res.status(200).send(response))

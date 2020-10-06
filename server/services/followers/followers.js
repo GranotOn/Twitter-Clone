@@ -52,9 +52,23 @@ function getFollows(id, full) {
   });
 }
 
+function isFollowing(follower, followed) {
+  return new Promise((resolve, reject) => {
+    let sql = `SELECT * FROM followers WHERE follower_id = ${follower} AND follows_id = ${followed}`
+    db.query(sql, (error, result) => {
+      if (error) reject({message: "DB error"});
+      else {
+        if (result.length === 0) resolve(false);
+        else resolve(true);
+      }
+    })
+  });
+}
+
 module.exports = {
   add,
   remove,
   getFollowers,
   getFollows,
+  isFollowing,
 };

@@ -7,7 +7,7 @@ export default function useTweets(id) {
 
   useEffect(() => {
     axios
-      .get(`process.env.REACT_APP_TWEETS/${id}`)
+      .get(`${process.env.REACT_APP_TWEETS}/${id}`)
       .then((response) => setTweets(response))
       .catch((error) => setTweets(null));
     return () => {
