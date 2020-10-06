@@ -5,6 +5,20 @@
 
     .profile {
         margin: 1em auto;
-        
+        width: 100%;
+        max-width: 25vw;
+        .showcase {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            border: 1px soild var(--hr);
+            .logo {
+                width: 4em;
+                height: 4em;
+                border-radius: 50%;
+            }
+        }
     }
 }
