@@ -20,10 +20,19 @@ router.get("/getProfile", (req, res, next) => {
     .then(({ id }) => {
       return User.searchId(id)
         .then((data) => {
-          res.send(data[0])
+          res.send(data[0]);
         })
         .catch((error) => next({ status: 404, message: error.message }));
     })
+    .catch((error) => next(error));
+});
+
+router.get("/getId", (req, res, next) => {
+  const name = req.query.name;
+  if (!name) next({ message: "invalid parameters" });
+
+  User.getIdFromName(name)
+    .then((response) => res.json(response))
     .catch((error) => next(error));
 });
 
@@ -37,6 +46,15 @@ router.delete("/:id", (req, res, next) => {
   User.deleteById(id)
     .then((data) => res.send(data))
     .catch((error) => next({ status: 404, message: error.message }));
+});
+
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  const jwt = req.cookies.jwt;
+
+  User.searchId(id)
+    .then((data) => res.send(data[0]))
+    .catch((error) => next(error));
 });
 
 router.post("/auth", (req, res, next) => {

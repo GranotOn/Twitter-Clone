@@ -8,7 +8,8 @@
     align-items: center;
     justify-content: flex-start;
     margin-left: .2em;
-    min-width: 20vw;
+    min-width: 10vw;
+    max-width: 10vw;
 }
 
 .nav-item h4 {

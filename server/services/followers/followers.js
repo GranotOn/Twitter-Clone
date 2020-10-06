@@ -24,21 +24,25 @@ function remove({ follower_id, follows_id }) {
   });
 }
 
-function getFollowers(id) {
+function getFollowers(id, full) {
   return new Promise((resolve, reject) => {
-    let sql = `SELECT follower_id FROM followers where follows_id = ${id}`;
+    if (full) var sql = `SELECT followers.follower_id, users.username, users.profile \ FROM followers \ INNER JOIN users \ ON followers.follower_id = users.user_id AND followers.follows_id = ${id}`
+    else var sql = `SELECT follower_id FROM followers where follows_id = ${id}`;
 
     db.query(sql, (error, result) => {
-      if (error)
+      if (error) {
+        console.warn(error);
         reject({ status: 500, message: "DB error, please try again later" });
+      }
       else resolve(result);
     });
   });
 }
 
-function getFollows(id) {
+function getFollows(id, full) {
   return new Promise((resolve, reject) => {
-    let sql = `SELECT follows_id FROM followers where follower_id = ${id}`;
+    if (full) var sql = `SELECT followers.follows_id, users.username, users.profile \ FROM followers \ INNER JOIN users \ ON followers.follows_id = users.user_id AND followers.follower_id = ${id}`
+    else var sql = `SELECT follows_id FROM followers where follower_id = ${id}`;
 
     db.query(sql, (error, result) => {
       if (error)

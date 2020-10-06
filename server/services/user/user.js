@@ -151,9 +151,11 @@ function authenticate(data) {
   });
 }
 
+
 module.exports = {
   create,
   searchId,
   deleteById,
   authenticate,
+  getIdFromName,
 };

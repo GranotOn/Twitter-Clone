@@ -17,6 +17,7 @@ export default function Nav(props) {
     // Clicked on a navigation link
     function handleClick(e) {
         const path = e.target.id;
+        console.log(e.target.id);
         if (path === props.active) return;
         history.push(`/${path}`);
     }
@@ -28,9 +29,9 @@ export default function Nav(props) {
     return (
         <nav className="nav"> 
             <div className="nav-home nav-item" onClick={handleClick}><i className="fas fa-home fa-2x" id="home"></i><h4>Home</h4></div>
-            <div className="nav-profile nav-item" onClick={handleClick}><i className="far fa-user-circle fa-2x" id="profile"></i><h4>Profile</h4></div>
-            <div className="nav-notifications nav-item" onClick={handleClick}><i className="far fa-bell fa-2x" id="notifications"></i><h4>Notifications</h4></div>
-            <div className="nav-trending nav-item" onClick={handleClick}><i className="fab fa-hotjar fa-2x" id="trending"></i><h4>Trending</h4></div>
+            <div className="nav-profile nav-item" onClick={handleClick}><i className="far fa-user-circle fa-2x" id="profile"></i><h4 id="profile">Profile</h4></div>
+            <div className="nav-notifications nav-item" onClick={handleClick}><i className="far fa-bell fa-2x" id="notifications"></i><h4 id="notifications">Notifications</h4></div>
+            <div className="nav-trending nav-item" onClick={handleClick}><i className="fab fa-hotjar fa-2x" id="trending"></i><h4 id="trending">Trending</h4></div>
             <div className="nav-tweet nav-item" onClick={handleTweet}><i className="far fa-edit fa-2x"><div className="plus"></div></i></div>
         </nav>
     );

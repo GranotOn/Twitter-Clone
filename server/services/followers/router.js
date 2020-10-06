@@ -17,14 +17,16 @@ router.delete("/", (req, res, next) => {
 
 router.get("/followers/:id", (req, res, next) => {
   const id = req.params.id;
-  Followers.getFollowers(id)
+  const full = req.query.full || false;
+  Followers.getFollowers(id, full)
     .then((response) => res.status(200).send(response))
     .catch((error) => next(error));
 });
 
 router.get("/following/:id", (req, res, next) => {
   const id = req.params.id;
-  Followers.getFollows(id)
+  const full = req.query.full || false;
+  Followers.getFollows(id, full)
     .then((response) => res.status(200).send(response))
     .catch((error) => next(error));
 })

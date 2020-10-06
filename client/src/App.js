@@ -9,7 +9,8 @@ import {
 import Login from "./Components/Login/Login";
 import Auth from "./Components/Auth/Auth";
 import Home from "./Components/Home/Home";
-import useAuth from "./hooks/auth.js";
+import Profile from "./Components/Profile/Profile";
+import useAuth from "./hooks/auth";
 import "./App.css";
 
 function App() {
@@ -18,21 +19,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/profile">
-          <h1>Profile</h1>
-        </Route>
-        <Route path="/login">
-          <div className="center">
-            <Login />
-          </div>
-        </Route>
-        <Route path="/">
-          <div className="App">
-            {connected ? <Redirect to="/home"></Redirect> : <Auth />}
-          </div>
+        {connected && <Route path="/home" exact component={Home} />}
+        {connected && <Route path="/profile/:name" exact component={Profile} />}
+        {!connected && <Route path="/login" component={Login} />}
+        <Route path="*" exact>
+          {connected ? <Redirect to="/home" /> : <Auth />}
         </Route>
       </Switch>
     </Router>

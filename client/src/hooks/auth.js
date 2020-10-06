@@ -10,12 +10,15 @@ export default function useAuth() {
         withCredentials: true,
       })
       .then((response) => {
+        localStorage.setItem("id", response.data.id);
         setConnected(true);
       })
       .catch((error) => {
+        localStorage.removeItem("id");
         setConnected(false);
       });
     return () => {
+      localStorage.removeItem("id");
       setConnected(false);
     };
   },[]);

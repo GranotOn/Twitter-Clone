@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const jwt_decode = require("jwt-decode");
 
 function sign(id) {
   return new Promise((resolve, reject) => {
@@ -24,7 +25,12 @@ function verify(token) {
   });
 }
 
+function decode(token) {
+  return jwt_decode(token);
+}
+
 module.exports = {
   sign,
   verify,
+  decode
 };

@@ -34,7 +34,7 @@ app.get("/auth", (req, res, next) => {
   else {
     auth
       .verify(jwt)
-      .then((response) => res.status(200).json({ message: "authenticated" }))
+      .then((response) => res.status(200).json(response))
       .catch((error) => next(error));
   }
 });
